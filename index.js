@@ -1,22 +1,16 @@
-var wallpaper       = require('wallpaper');
-  , Scrapper        = require('./lib/Scrapper')
-  , ImageDownloader = require('./lib/ImageDownloader');
+const menubar = require('menubar')
+const { Wallpaperz } = require('./config/setup')
+const { setContextMenu } = require('./app')
 
-var scrapper = new Scrapper();
+const mb = menubar({ tooltip: 'wallpaper' })
 
-scrapper
-  .searchImage()
-  .then(function(image) {
-    var dowloader = new ImageDownloader(image);
+// if (process.env.NODE_ENV == 'development') {
+//   require('electron-reload')(__dirname, {
+//     electron: require('electron-prebuilt')
+//   })
+// }
 
-    dowloader.download()
-      .then(function() {
-        console.log('finished');
-      })
-      .catch(function(err) {
-        console.log(err);
-      })
-  })
-  .catch(function(err) {
-    console.log(err)
+new Wallpaperz()
+  .then(() => {
+    mb.on('ready', () => { mb.tray.setContextMenu(setContextMenu()) })
   })

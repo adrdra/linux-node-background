@@ -1,6 +1,5 @@
 const { toJson } = require('unsplash-js')
 const request = require('request')
-const cheerio = require('cheerio')
 
 const searchImage = () => {
   return getImages()

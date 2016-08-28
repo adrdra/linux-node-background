@@ -9,7 +9,7 @@ const searchImage = () => {
 const getImages = () => {
   return unsplash
   .photos
-  .listPhotos(1, 24, "latest")
+  .listPhotos(randomNumber(20), 24, "latest")
   .then(toJson)
 }
 

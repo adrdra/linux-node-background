@@ -19,7 +19,9 @@
   "homepage": "https://github.com/alexisHetic/linux-node-background#readme",
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.15.0",
     "menubar": "^5.1.0",
+    "node-schedule": "^1.1.1",
     "request": "^2.60.0",
     "temp": "^0.8.3",
     "unsplash-js": "^4.2.0",

@@ -1,7 +1,7 @@
 const fs = require('fs')
 const wallpaper = require('wallpaper')
-const searchImage = require('./searchImage')
 const downloadImage = require('./downloadImage')
+const searchImage = require('./searchImage')
 
 const changeWallpaper = () => {
   return searchImage()
@@ -11,9 +11,9 @@ const changeWallpaper = () => {
     .then((downloaded) => {
       wallpaper
         .set(downloaded, (err) => {
-          if (err) throw new Error(err);
+          if (err) throw new Error(err)
+          console.log('Background changed !')
           fs.unlink(downloaded)
-          console.log('finished')
         })
     })
     .catch((err) => console.log(err))
